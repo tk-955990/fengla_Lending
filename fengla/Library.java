@@ -2,9 +2,11 @@ package fengla;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Library {
 	public static void main(String args[]) {
@@ -17,60 +19,35 @@ public class Library {
 				new Lending("Java入門", "百瀬仁")
 		};
 
+		ArrayList<Lending> lendingList = new ArrayList<Lending>();
+		for(int i=0;i<ary.length;i++) {
+			lendingList.add(ary[i]);        
+		}
+		for(Lending str: lendingList) {
+			System.out.println("arraylist");  
+			System.out.println(str);
+		}		
 
+		Map<String,ArrayList<String>> lendingMap = lendingRecord(lendingList);
 
-		
-		Map<String,String> lendingMap = lendingRecord(ary);
-
-		
-		
 	}
+	private static Map<String, ArrayList<String>> lendingRecord(ArrayList<Lending> lendingList) {
 
-	private static Map<String,String> lendingRecord(Lending[] ary) {
-        List<Lending> list = Arrays.asList(ary);
-	//	lendingList = Arrays.asList(ary);
-        System.out.println("List = " + list);
 
-		Map<String, String> map = new HashMap<>();
-		for(Lending lending : ary) {
-            map.put(lending.getBookTitle(),lending.getPersonName() );
-        }
-	   
-	//	for(String val : map.values()){
-		    System.out.println(map);
-	//	}
-		
-//	Object[] mapkey = map.keySet().toArray();
-//		Arrays.sort(mapkey);
+		Map<String, ArrayList<String>> map = new HashMap<>();
+		for(Lending lending : lendingList) {
+			if(map.containsKey(lending.getBookTitle())) {
+				ArrayList<String>names = 
+						map.get(lending.getBookTitle());
+			}else {
+				map.put(lending.getBookTitle(),lendingList.get(1));
+			}
+		}
+		System.out.println("追加後");
 
-	//	for (String nKey:map.keySet()) {
-//
-	//		System.out.println(map.get(nKey));
-	//	}
-
-		//		for (Lending e:ary) {
-		//		System.out.println(e);
-		//	}
-		map.forEach((getBookTitle, getPersonName) -> System.out.println(getBookTitle + " : " + getPersonName));
+		map.forEach((key, val) -> System.out.println(key + " : " + val));
 
 		return map;
 	}	
-
-	/*		for (Lending e:ary) {
-			if(map.containsKey(e.getBookTitle())) {
-				map.put(e.getBookTitle(), e.getPersonName()  );
-			}else{
-				map.put(e.getBookTitle() );
-			}
-		} 
-
-		for (Lending e:ary) {
-			System.out.println(e);
-		}
-		return null;
-	}
-	 */
-
-
 
 }

@@ -31,7 +31,7 @@ public class Library {
 		Map<String,ArrayList<String>> lendingMap = lendingRecord(lendingList);
 
 	}
-	
+
 	private static Map<String, ArrayList<String>> lendingRecord(ArrayList<Lending> lendingList) {
 
 
@@ -45,16 +45,51 @@ public class Library {
 
 			}else {
 				ArrayList<String>addName = 
-						 new ArrayList<String>();		
+						new ArrayList<String>();		
 				addName.add(lending.getPersonName());
 
 				map.put(lending.getBookTitle(),addName);
 
 			}
 		}
+		System.out.println("");
 		System.out.println("追加後");
 
-		map.forEach((key, val) -> System.out.println(key + " : " + val));
+		System.out.println("");
+
+		//　出力パターン　1
+		System.out.println("case 1");
+		System.out.println("");
+		
+		map.forEach((key, val) -> {
+		System.out.println(key );
+		System.out.println(  val );
+		System.out.println("");
+
+		});  
+		System.out.println("");
+
+		//　出力パターン　2
+		System.out.println("case 2");
+		System.out.println("");
+      
+		for(Entry<String, ArrayList<String>> entry : map.entrySet()){
+			System.out.println(entry.getKey());
+			System.out.println(entry.getValue());
+		}
+		System.out.println("");
+
+		//　出力パターン　3
+		System.out.println("case ");
+		System.out.println("");
+
+		for (String key : map.keySet()) {
+			System.out.println(key);
+			for (ArrayList<String> val : map.values()) {
+				System.out.println(val);
+			}
+		}
+
 
 		return map;
 	}	

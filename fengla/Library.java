@@ -31,6 +31,7 @@ public class Library {
 		Map<String,ArrayList<String>> lendingMap = lendingRecord(lendingList);
 
 	}
+	
 	private static Map<String, ArrayList<String>> lendingRecord(ArrayList<Lending> lendingList) {
 
 
@@ -39,8 +40,16 @@ public class Library {
 			if(map.containsKey(lending.getBookTitle())) {
 				ArrayList<String>names = 
 						map.get(lending.getBookTitle());
+
+				names.add(lending.getPersonName());
+
 			}else {
-				map.put(lending.getBookTitle(),lendingList.get(1));
+				ArrayList<String>addName = 
+						 new ArrayList<String>();		
+				addName.add(lending.getPersonName());
+
+				map.put(lending.getBookTitle(),addName);
+
 			}
 		}
 		System.out.println("追加後");

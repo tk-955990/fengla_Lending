@@ -74,7 +74,7 @@ public class Library {
 		System.out.println("");
       
 		for(Entry<String, ArrayList<String>> entry : map.entrySet()){
-			System.out.println(entry.getValue());
+			System.out.println(entry.getKey());
 			for(String author:entry.getValue())
 			System.out.println("  "+ author);
 		}

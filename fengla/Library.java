@@ -58,7 +58,7 @@ public class Library {
 		System.out.println("");
 
 		//　出力パターン　1
-		System.out.println("case 1");
+/*		System.out.println("case 1");
 		System.out.println("");
 		
 		map.forEach((key, val) -> {
@@ -68,17 +68,18 @@ public class Library {
 
 		});  
 		System.out.println("");
-
+*/
 		//　出力パターン　2
 		System.out.println("case 2");
 		System.out.println("");
       
 		for(Entry<String, ArrayList<String>> entry : map.entrySet()){
-			System.out.println(entry.getKey());
 			System.out.println(entry.getValue());
+			for(String author:entry.getValue())
+			System.out.println("  "+ author);
 		}
 		System.out.println("");
-
+/*
 		//　出力パターン　3
 		System.out.println("case ");
 		System.out.println("");
@@ -89,7 +90,7 @@ public class Library {
 				System.out.println(val);
 			}
 		}
-
+*/
 
 		return map;
 	}	
